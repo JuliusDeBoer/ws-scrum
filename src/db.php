@@ -19,12 +19,12 @@ class DB
     //Login user
     public function login($user,$pass)
     {
-        $res = $query("SELECT * FROM users WHERE Password = \""$pass"\" AND FirstName = \""$user"\" ")
+        $res = $query("SELECT * FROM users WHERE Password = \""$pass"\" AND FirstName = \""$user"\" ");
         if(mysql_num_rows($res) >= 0)
         {
-            return new User($user,$pass)
+            return new User($user,$pass);
         }
-        return null
+        return null;
     }
 
 }
