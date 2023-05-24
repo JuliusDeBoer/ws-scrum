@@ -1,17 +1,22 @@
 <?php
 class User
 {
-    //Variables
-    public $user;
-    public $pass;
-		public $admin = false;
-		public $password;
+    public string $user;
+		public string $firstName;
+		public string $lastName;
+    public string $password;
+		public bool $admin;
+		public string $password;
 
-    //Define variables
-    public function __construct($user,$pass)
+    public function __construct($user, $firstName, $lastName, $admin, $password)
     {
         $this->user = $user;
-        $this->pass = $pass;
+        $this->password = $password;
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
+				$this->password = $password;
+				$this->admin = $admin;
+				$this->password = $password;
     }
 }
 ?>
