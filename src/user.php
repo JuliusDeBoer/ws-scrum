@@ -4,7 +4,7 @@ class User
     //Variables
     public $user;
     public $pass;
-    private $admin = false;
+    public $admin = false;
 
     //Define variables
     public function __construct($user,$pass)
