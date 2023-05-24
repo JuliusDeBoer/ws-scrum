@@ -2,8 +2,8 @@
 class User
 {
     //Variables
-    private $user;
-    private $pass;
+    public $user;
+    public $pass;
     private $admin = false;
 
     //Define variables
@@ -11,16 +11,6 @@ class User
     {
         $this->user = $user;
         $this->pass = $pass;
-    }
-
-    //Getters
-    private function getPass()
-    {
-        return $this->pass;
-    }
-    private function getUser()
-    {
-        return $this->user;
     }
 }
 ?>
