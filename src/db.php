@@ -10,10 +10,21 @@ class DB
         $this->db = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     }
 
-    //return query result
+    //Return query result
     public function query($query)
     {
-        return $this->database->query($query);
+        return $this->db->query($query);
+    }
+
+    //Login user
+    public function login(USER $user)
+    {
+        $res = $query("SELECT * FROM users WHERE password = \""$pass"\" AND username = \""$user"\" ")
+        if(mysql_num_rows($res) >= 0)
+        {
+            return true
+        }
+        return false
     }
 
 }
