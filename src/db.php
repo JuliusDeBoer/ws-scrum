@@ -3,7 +3,7 @@ DB::$conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 class DB
 {
-	public $conn;
+	public mysqli $conn;
 
 	// @param query Sql query
 	public function query(string $query): mysqli_result
