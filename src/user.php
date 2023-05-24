@@ -1,15 +1,15 @@
 <?php
 class User
 {
-	public string $user;
+	public int $id;
 	public string $firstName;
 	public string $lastName;
 	public bool $admin;
 	public string $password;
 
-	public function __construct($user, $firstName, $lastName, $admin, $password)
+	public function __construct(int $id, string $firstName, string $lastName, bool $admin, string $password)
 	{
-		$this->user = $user;
+		$this->id = $id;
 		$this->password = $password;
 		$this->firstName = $firstName;
 		$this->lastName = $lastName;

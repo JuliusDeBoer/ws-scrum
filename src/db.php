@@ -1,23 +1,23 @@
 <?php
+DB::$conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+
 class DB
 {
-	private $db;
+	public $conn;
 
-	public function __construct()
+	// @param query Sql query
+	public function query(string $query): mysqli_result
 	{
-		$this->db = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+		return DB::$conn->query($query);
 	}
 
-	public function query($query)
+	public function login(string $user, string $password): User | false
 	{
-		return $this->db->query($query);
-	}
+		$result = $this->query("SELECT * FROM users WHERE Password = \"$password\" AND FirstName = \"$user\" ");
 
-	public function login($user, $password)
-	{
-		$res = $this->query("SELECT * FROM users WHERE Password = \"$password\" AND FirstName = \"$user\" ");
-		if (mysqli_num_rows($res) >= 0) {
-			return new User($user, $pass);
+		if (mysqli_num_rows($result) >= 1) {
+			$data = $result->fetch_assoc();
+			return new User($data["id"], $data["FirstName"], $data["LastName"], $data["email"], $data["password"]);
 		}
 
 		return false;
