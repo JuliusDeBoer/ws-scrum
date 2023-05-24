@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Gegenereerd op: 24 mei 2023 om 13:07
--- Serverversie: 10.4.24-MariaDB
--- PHP-versie: 8.1.6
+-- Host: mariadb:3306
+-- Generation Time: May 24, 2023 at 11:16 AM
+-- Server version: 10.10.2-MariaDB-1:10.10.2+maria~ubu2204
+-- PHP Version: 8.0.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,29 +24,63 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
-  `FirstName` varchar(15) NOT NULL,
-  `LastName` varchar(15) NOT NULL,
-  `email` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` int(11) NOT NULL,
+  `FirstName` varchar(128) NOT NULL,
+  `LastName` varchar(128) NOT NULL,
+  `email` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `customers`
+-- Table structure for table `customers`
 --
 
 CREATE TABLE `customers` (
-  `FirstName` text NOT NULL,
-  `LastName` text NOT NULL,
-  `Description` text NOT NULL,
-  `Adress` varchar(30) NOT NULL,
-  `Status` text NOT NULL,
+  `id` int(11) NOT NULL,
+  `FirstName` varchar(128) NOT NULL,
+  `LastName` varchar(128) NOT NULL,
+  `Description` varbinary(128) NOT NULL,
+  `Adress` varchar(128) NOT NULL,
+  `Status` varbinary(128) NOT NULL,
   `Last act.` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `customers`
+--
+ALTER TABLE `customers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `customers`
+--
+ALTER TABLE `customers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
