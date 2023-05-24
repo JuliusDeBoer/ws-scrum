@@ -53,3 +53,8 @@ form
     border-radius: 10px;
     display: none;
 }
+
+.show
+{
+	display: block !important;
+}
