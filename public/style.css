@@ -39,3 +39,54 @@ form
     flex-direction: column;
     justify-content: center;
 }
+
+nav ul
+{
+    list-style: none;
+    border-bottom: solid 2px #000;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+nav ul li
+{
+    margin-left: 25px;
+}
+
+.home
+{
+    display: flex;
+}
+
+.greeting
+{
+    width: 30%;
+    height: 250px;
+    border: solid 1px #000;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.excerptCustomer
+{
+    width: 34%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.excerptsCustomers
+{
+    text-align: center;
+    width: 400px;
+    border: solid 1px #000;
+}
+
+.home ul
+{
+    list-style: none;
+    border-bottom: solid 1px #000;
+}
