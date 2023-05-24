@@ -19,7 +19,7 @@ class DB
     //Login user
     public function login(USER $user)
     {
-        $res = $query("SELECT * FROM users WHERE password = \""$pass"\" AND username = \""$user"\" ")
+        $res = $query("SELECT * FROM users WHERE Password = \""$pass"\" AND FirstName = \""$user"\" ")
         if(mysql_num_rows($res) >= 0)
         {
             return true
