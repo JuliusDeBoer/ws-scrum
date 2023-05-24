@@ -5,7 +5,6 @@ class DB
 {
 	public mysqli $conn;
 
-	// @param query Sql query
 	public function query(string $query): mysqli_result
 	{
 		return DB::$conn->query($query);
