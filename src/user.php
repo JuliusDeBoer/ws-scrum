@@ -4,7 +4,6 @@ class User
     public string $user;
 		public string $firstName;
 		public string $lastName;
-    public string $password;
 		public bool $admin;
 		public string $password;
 
