@@ -1,3 +1,18 @@
+<?php
+require_once("../src/email.php");
+
+$result = sendMail("boerjulius@gmail.com", "teehee", "you found me");
+
+if($result) {
+	print("It worked!");
+} else {
+	print("It did not do the thingy");
+}
+
+exit();
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

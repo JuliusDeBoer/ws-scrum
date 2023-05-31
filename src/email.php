@@ -1,11 +1,8 @@
 <?php
 
-function sendMail(string $dest, string $subject, string $msg, bool $dontWrap = false): void {
-	if(!$dontWrap) {
-		$msg = wordwrap($msg, 80);
-	}
-
-	mail($dest, $subject, $msg);
+function sendMail(string $to, string $subject, string $content): bool {
+	$content = wordwrap($content, 70, "\r\n");
+	return mail($to, $subject, phpversion());
 }
 
 ?>
