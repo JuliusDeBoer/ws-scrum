@@ -23,13 +23,25 @@ class DB
 		return false;
 	}
 
-	public function getById(int $id): User
+	public function getUserById(int $id): User
 	{
 		$result = $this->query("SELECT * FROM users WHERE id = ".$id);
 
 		if (mysqli_num_rows($result) >= 1) {
 			$data = $result->fetch_assoc();
 			return new User($data["id"], $data["FirstName"], $data["LastName"], $data["email"], $data["password"]);
+		}
+
+		return false;
+	}
+
+	public function getCustomerById(int $id): Customer
+	{
+		$result = $this->query("SELECT * FROM customers WHERE id = ".$id);
+
+		if (mysqli_num_rows($result) >= 1) {
+			$data = $result->fetch_assoc();
+			return new Customer($data["id"], $data["FirstName"], $data["LastName"], $data["Description"], $data["Adress"], $data["Last act."]);
 		}
 
 		return false;
@@ -43,6 +55,10 @@ class DB
 	public function addCustomer(String $fName, String $lName, String $desc, String $address, String $status)
 	{
 		$this->query("INSERT INTO customers (FirstName,LastName,Description,Adress,Status) VALUES(\"$fName\",\"$lName\",\"$desc\",\"$address\",\"$status\")");
+	}
+
+	public function updateCustomer(String $fName, String $lName, String $desc, String $address, String $status){
+		$this->query("UPDATE customers SET FirstName = \"$fName\", LastName = \"$lName\", Description = \"$desc\", Adress = \"$address\", Status = \"$status\")");
 	}
 }
 ?>
