@@ -60,5 +60,9 @@ class DB
 	public function updateCustomer(String $fName, String $lName, String $desc, String $address, String $status){
 		$this->query("UPDATE customers SET FirstName = \"$fName\", LastName = \"$lName\", Description = \"$desc\", Adress = \"$address\", Status = \"$status\")");
 	}
+
+	public function updateUser(String $fName, String $lName, String $email, String $password){
+		$this->query("UPDATE users SET FirstName = \"$fName\", LastName = \"$lName\", Email = \"$email\", Password = \"$password\"");
+	}
 }
 ?>
