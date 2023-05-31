@@ -9,23 +9,38 @@
 </head>
 <body>
 	<div class="container">
-			<div class="content">
-			<form action="#" method="post">
-			<label for="firstname">firstname</label>
-			<input type="text" name="email" required>
-			<label for="lastname">lastname</label>
-			<input type="text" name="lastname" required>
-			<label for="address">address</label>
-			<input type="text" name="address" required>
-			<br>
-			<label for="discription">discription</label>
-			<input type="text" name="discription" required>
-			<label for="status">status</label>
-			<input type="text" name="status" required>
-			<label for="lastAtc">last action</label>
-			<input type="text" name="lastAtc" required>
-			<br>
-			<input value="submit" type="submit" name="submit">
+			<div class="customer">
+				<form action="#" method="post">
+				<div class="custInfo">
+					<div>
+						<label for="firstname">firstname</label>
+						<input type="text" name="firstname" required>
+					</div>
+					<div>
+						<label for="lastname">lastname</label>
+						<input type="text" name="lastname" required>
+					</div>
+					<div>
+						<label for="address">address</label>
+						<input type="text" name="address" required>
+					</div>
+				</div>
+				<div class="custInfo">
+					<div>
+						<label for="discription">discription</label>
+						<input type="text" name="discription" required>
+					</div>
+					<div>
+						<label for="status">status</label>
+						<input type="text" name="status" required>
+					</div>
+					<div>
+						<label for="lastAtc">last action</label>
+						<input type="text" name="lastAtc" required>
+					</div>
+				</div>
+				<input value="submit" type="submit" name="submit">
+				<a href="#">back</a>
 			</form>
 		</div>
 	</div>
