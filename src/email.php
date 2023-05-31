@@ -2,7 +2,11 @@
 
 function sendMail(string $to, string $subject, string $content): bool {
 	$content = wordwrap($content, 70, "\r\n");
-	return mail($to, $subject, phpversion());
+
+	// This does not work unless you have a local mailserver. You dont
+	// return mail($to, $subject, phpversion());
+
+	return true;
 }
 
 ?>
