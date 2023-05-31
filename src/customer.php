@@ -6,7 +6,7 @@ class Customer
 	public string $lastName;
 	public string $description;
 	public string $address;
-    public string $date
+  public string $date;
 
 	public function __construct(int $id, string $firstName, string $lastName, string $description, string $address, string $date)
 	{
@@ -15,7 +15,7 @@ class Customer
 		$this->lastName = $lastName;
 		$this->description = $description;
 		$this->address = $address;
-        $this->date = $date
+    $this->date = $date;
 	}
 }
 ?>
