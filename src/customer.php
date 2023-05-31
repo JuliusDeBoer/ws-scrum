@@ -17,5 +17,20 @@ class Customer
 		$this->address = $address;
     $this->date = $date;
 	}
+
+	public function export(): string {
+		$firstName = $this->firstName;
+		$lastName = $this->lastName;
+		$address = $this->address;
+		$date = $this->date;
+		$description = $this->description;
+
+		return
+			"Summary of $firstName $lastName
+			Residing at: \"$address\"
+			Date of last change: $date
+
+			$description";
+	}
 }
 ?>
