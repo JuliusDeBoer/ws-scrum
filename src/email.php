@@ -1,6 +1,6 @@
 <?php
 
-function SendMail(string $dest, string $subject, string $msg, bool $dontWrap = false): void {
+function sendMail(string $dest, string $subject, string $msg, bool $dontWrap = false): void {
 	if(!$dontWrap) {
 		$msg = wordwrap($msg, 80);
 	}
