@@ -1,5 +1,6 @@
 <?php
-include("config/db.php");
+require_once("../config/db.php");
+
 DB::$conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 class DB

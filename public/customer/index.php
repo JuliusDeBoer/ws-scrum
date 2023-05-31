@@ -1,3 +1,13 @@
+<?php
+require_once("../../src/db.php");
+
+if(isset($_POST["firstname"]) && isset($_POST["lastname"]) &&
+	isset($_POST["address"]) && isset($_POST["description"]) &&
+	isset($_POST["status"])) {
+	$DB->addCustomer($_POST["firstname"], $_POST["lastname"], $_POST["description"],
+	  $_POST["address"], $_POST["status"]);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,16 +37,12 @@
 				</div>
 				<div class="custInfo">
 					<div>
-						<label for="discription">discription</label>
-						<input type="text" name="discription" required>
+						<label for="description">description</label>
+						<input type="text" name="description" required>
 					</div>
 					<div>
 						<label for="status">status</label>
 						<input type="text" name="status" required>
-					</div>
-					<div>
-						<label for="lastAtc">last action</label>
-						<input type="text" name="lastAtc" required>
 					</div>
 				</div>
 				<input value="submit" type="submit" name="submit">
