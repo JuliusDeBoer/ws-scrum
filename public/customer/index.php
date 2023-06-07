@@ -6,7 +6,7 @@ require_once(__DIR__ . "/../../src/email.php");
 requireLogin();
 
 if(isset($_POST["Send mail"])) {
-	$customer = new Customer($_POST["id"], $_POST["firstname"], $_POST["lastname"], $_POST["discription"], $_["address"], $_POST["status"]);
+	$customer = new Customer($_POST["id"], $_POST["firstname"], $_POST["lastname"], $_POST["discription"], $_["address"], $_POST["status"], 0);
 	sendMail($_POST["to"], "Exported", $customer->export());
 	header("location: dashboard");
 	exit;
