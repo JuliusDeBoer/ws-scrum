@@ -57,6 +57,21 @@ class DB
 		return false;
 	}
 
+	/**Gets if the column with the defined id is an admin in the user table
+	*  Returns true if succesful
+	*  Returns false if unsuccesful**/
+	public function getAdminById(int $id): true | false
+	{
+		$result = $this->query("SELECT * FROM users WHERE id = ".$id." AND admin = 1 ");
+
+		if (mysqli_num_rows($result) >= 1) {
+			$data = $result->fetch_assoc();
+			return true;
+		}
+
+		return false;
+	}
+
 	//Add new column to the user table within the database
 	public function addUser(String $fName, String $lName, String $email, String $password)
 	{
@@ -78,6 +93,8 @@ class DB
 	public function updateUser(String $fName, String $lName, String $email, String $password){
 		$this->query("UPDATE users SET FirstName = \"$fName\", LastName = \"$lName\", Email = \"$email\", Password = \"$password\"");
 	}
+
+
 
 }
 ?>
