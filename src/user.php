@@ -1,13 +1,15 @@
 <?php
 class User
 {
+	//Variables
 	public int $id;
 	public string $firstName;
 	public string $lastName;
 	public bool $admin;
 	public string $password;
 
-	public function __construct(int $id, string $firstName, string $lastName, bool $admin, string $password)
+	//Instantiate variables
+	public function __construct(int $id, string $firstName, string $lastName, bool $admin = false, string $password)
 	{
 		$this->id = $id;
 		$this->firstName = $firstName;
