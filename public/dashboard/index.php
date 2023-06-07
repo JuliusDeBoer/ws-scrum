@@ -19,7 +19,7 @@ requireLogin();
             <ul>
                 <li>Home</li>
                 <li>Excerpts</li>
-                <li>Customers</li>
+                <li><a href="customer">Customers</a></li>
                 <li>Logout</li>
             </ul>
         </nav>
