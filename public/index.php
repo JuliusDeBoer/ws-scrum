@@ -17,24 +17,26 @@ session_start();
 </head>
 <body>
   <div class="container">
-  <?php if (isset($error)){ ?>
-        <div class="error">
-		<?php 
-			echo "<h3>Wrong email or password</h3>";} ?>
-		</div>
-        
-    <div class="content">
-      <h1>Login</h1>
-      <div class="login">
-        <form action="#" method="post">
-          <label for="email">email</label>
-          <input type="email" name="email" required>
-          <br>
-          <label for="password">password</label>
-          <input type="password" name="password" required>
-          <br>
-          <input value="login" type="submit" name="login">
-        </form>
+    <div>
+      <?php if (isset($error)){ ?>
+            <div class="error">
+        <?php 
+          echo "<h3>Wrong email or password</h3>";} ?>
+        </div>
+            
+        <div class="content">
+          <h1>Login</h1>
+          <div class="login">
+            <form action="#" method="post">
+              <label for="email">email</label>
+              <input type="email" name="email" required>
+              <br>
+              <label for="password">password</label>
+              <input type="password" name="password" required>
+              <br>
+              <input value="login" type="submit" name="login">
+            </form>
+          </div>
       </div>
     </div>
   </div>
