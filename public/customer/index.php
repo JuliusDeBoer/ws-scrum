@@ -2,15 +2,24 @@
 require_once(__DIR__ . "/../../src/db.php");
 require_once(__DIR__ . "/../../src/customer.php");
 require_once(__DIR__ . "/../../src/account.php");
+require_once(__DIR__ . "/../../src/email.php");
 requireLogin();
+
+if(isset($_POST["Send mail"])) {
+	$customer = new Customer($_POST["id"], $_POST["firstname"], $_POST["lastname"], $_POST["discription"], $_["address"], $_POST["status"]);
+	sendMail($_POST["to"], "Exported", $customer->export());
+	header("location: dashboard");
+	exit;
+}
 
 if(isset($_POST["firstname"])) {
 	if($_POST["id"] == -1) {
 		DB::addCustomer($_POST["firstname"], $_POST["lastname"], $_POST["discription"], $_POST["address"], $_POST["status"]);
 	} else {
-		DB::updateCustomer($_POST["firstname"], $_POST["lastname"], $_POST["discription"], $_POST["address"], $_POST["status"]);
+		DB::updateCustomer($_POST["id"], $_POST["firstname"], $_POST["lastname"], $_POST["discription"], $_POST["address"], $_POST["status"]);
 	}
 	header("location: dashboard");
+	exit;
 }
 
 $row = new Customer(-1, "", "", "", "", "", "");
@@ -19,6 +28,7 @@ $row = new Customer(-1, "", "", "", "", "", "");
 	$row = DB::getCustomerById($_GET["id"]);
 	if($row == false) {
 		header("location: dashboard");
+		exit;
 	}
 }
 ?>
@@ -62,6 +72,8 @@ $row = new Customer(-1, "", "", "", "", "", "");
 				</div>
 				<input value="<?= $row->id ?>" type="hidden" name="id">
 				<input value="submit" type="submit" name="submit">
+				<input type="email" name="to">
+				<input value="Send email" type="submit" name="mail">
 				<a href="dashboard">back</a>
 			</form>
 		</div>

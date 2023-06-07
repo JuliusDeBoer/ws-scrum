@@ -62,7 +62,7 @@ class DB
 	/**Gets if the column with the defined id is an admin in the user table
 	*  Returns true if succesful
 	*  Returns false if unsuccesful**/
-	public function getAdminById(int $id): true | false
+	public function getAdminById(int $id): bool
 	{
 		$result = $this->query("SELECT * FROM users WHERE id = ".$id." AND admin = 1 ");
 
@@ -87,8 +87,8 @@ class DB
 	}
 
 	//Update values within the customer table within the database
-	public static function updateCustomer(String $fName, String $lName, String $desc, String $address, String $status){
-		self::query("UPDATE customers SET FirstName = \"$fName\", LastName = \"$lName\", Description = \"$desc\", Adress = \"$address\", Status = \"$status\"");
+	public static function updateCustomer(int $id, String $fName, String $lName, String $desc, String $address, String $status){
+		self::query("UPDATE customers SET FirstName = \"$fName\", LastName = \"$lName\", Description = \"$desc\", Adress = \"$address\", Status = \"$status\" WHERE `id` = $id");
 	}
 	//Update values within the user table within the database
 	public function updateUser(String $fName, String $lName, String $email, String $password){

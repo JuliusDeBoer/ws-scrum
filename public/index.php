@@ -1,5 +1,6 @@
 <?php
 require_once(__DIR__ . "/../src/account.php");
+require_once(__DIR__ . "/../src/db.php");
 
 if(isset($_POST["email"]) && isset($_POST["password"])) {
 	if(login($_POST["email"], $_POST["password"])) {
