@@ -31,9 +31,9 @@ CREATE TABLE `customers` (
   `id` int(11) NOT NULL,
   `FirstName` varchar(128) NOT NULL,
   `LastName` varchar(128) NOT NULL,
-  `Description` varbinary(128) NOT NULL,
+  `Description` varchar(128) NOT NULL,
   `Adress` varchar(128) NOT NULL,
-  `Status` varbinary(128) NOT NULL,
+  `Status` varchar(128) NOT NULL,
   `Last act.` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

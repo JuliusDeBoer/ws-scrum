@@ -1,5 +1,6 @@
 <?php
 require_once(__DIR__ . "/../../src/account.php");
+require_once(__DIR__ . "/../../src/db.php");
 requireLogin();
 ?>
 
@@ -38,7 +39,15 @@ requireLogin();
                 <h3>Customers</h3>
                 <div class="excerptsCustomers">
                     <ul>
-                        <li>Customers</li>
+											<?php
+												foreach(DB::query("SELECT * FROM `customers`")->fetch_all(MYSQLI_ASSOC) as $row) {
+													?>
+														<li>
+															<h2><?= $row["FirstName"] ?> <?= $row["LastName"] ?></h2>
+														</li>
+													<?php
+												}
+											?>
                     </ul>
                 </div>
             </div>
