@@ -3,10 +3,8 @@ require_once(__DIR__ . "/../src/account.php");
 
 if(isset($_POST["email"]) && isset($_POST["password"])) {
 	if(login($_POST["email"], $_POST["password"])) {
-		// header("location: " . $_SERVER['REQUEST_URI'] ."/dashboard");
-		echo "Correct login";
+		header("location: " . $_SERVER['REQUEST_URI'] ."/dashboard");
 	}
-		echo "Or shit";
 }
 ?>
 <!DOCTYPE html>
