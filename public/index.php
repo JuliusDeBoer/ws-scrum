@@ -1,10 +1,11 @@
 <?php
-session_start();
+require_once(__DIR__ . "/../src/account.php");
 
-  $error = "error";
-
-
-
+if(isset($_POST["email"]) && isset($_POST["password"])) {
+	if(login($_POST["email"], $_POST["password"])) {
+		header("location: " . $_SERVER['REQUEST_URI'] ."/dashboard");
+	}
+}
 ?>
 <!DOCTYPE html>
 <html>
