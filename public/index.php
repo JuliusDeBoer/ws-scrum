@@ -21,8 +21,9 @@ session_start();
       <?php if (isset($error)){ ?>
             <div class="error">
         <?php 
-          echo "<h3>Wrong email or password</h3>";} ?>
-        </div>
+          echo "<h3>Wrong email or password</h3>";} 
+        ?>
+            </div>
             
         <div class="content">
           <h1>Login</h1>
