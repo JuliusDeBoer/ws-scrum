@@ -43,6 +43,7 @@ form
 
 .error
 {
+    height: auto;
     text-align: center;
     background-color: #f77;
     color: #c00;
@@ -51,7 +52,7 @@ form
     padding: 5px;
     margin: 3px;
     border-radius: 10px;
-    display: none;
+    display: flex;
 }
 
 .show
