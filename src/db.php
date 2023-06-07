@@ -1,5 +1,6 @@
 <?php
-include(__DIR__ . "/../config/db.php");
+require_once(__DIR__ . "/user.php");
+require_once(__DIR__ . "/../config/db.php");
 DB::$conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 class DB
@@ -13,11 +14,11 @@ class DB
 
 	public static function login(string $user, string $password): User | bool
 	{
-		$result = self::query("SELECT * FROM users WHERE Password = \"$password\" AND FirstName = \"$user\" ");
+		$result = self::query("SELECT * FROM users WHERE Password = \"$password\" AND `Email` = \"$user\" ");
 
 		if (mysqli_num_rows($result) >= 1) {
 			$data = $result->fetch_assoc();
-			return new User($data["id"], $data["FirstName"], $data["LastName"], $data["email"], $data["password"]);
+			return new User($data["id"], $data["FirstName"], $data["LastName"], $data["Email"], $data["Admin"], $data["Password"]);
 		}
 
 		return false;
@@ -29,7 +30,7 @@ class DB
 
 		if (mysqli_num_rows($result) >= 1) {
 			$data = $result->fetch_assoc();
-			return new User($data["id"], $data["FirstName"], $data["LastName"], $data["email"], $data["password"]);
+			return new User($data["id"], $data["FirstName"], $data["LastName"], $data["Email"], $data["Admin"], $data["Password"]);
 		}
 
 		return false;

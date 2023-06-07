@@ -1,3 +1,8 @@
+<?php
+require_once(__DIR__ . "/../../src/account.php");
+requireLogin();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
