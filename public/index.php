@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+  $error = "error";
+
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,12 +17,12 @@ session_start();
 </head>
 <body>
   <div class="container">
-  <?php if (isset($error)): ?>
+  <?php if (isset($error)){ ?>
         <div class="error">
-			<h2>Error</h2>
-			<h3>Wrong email or password</h3>
+		<?php 
+			echo "<h3>Wrong email or password</h3>";} ?>
 		</div>
-        <?php endif; ?>
+        
     <div class="content">
       <h1>Login</h1>
       <div class="login">
