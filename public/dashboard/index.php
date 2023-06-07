@@ -43,7 +43,9 @@ requireLogin();
 												foreach(DB::query("SELECT * FROM `customers`")->fetch_all(MYSQLI_ASSOC) as $row) {
 													?>
 														<li>
-															<h2><?= $row["FirstName"] ?> <?= $row["LastName"] ?></h2>
+															<a href="customer?id=<?= $row["id"] ?>">
+																<h2><?= $row["FirstName"] ?> <?= $row["LastName"] ?></h2>
+															</a>
 														</li>
 													<?php
 												}

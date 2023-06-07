@@ -1,5 +1,6 @@
 <?php
 require_once(__DIR__ . "/user.php");
+require_once(__DIR__ . "/customer.php");
 require_once(__DIR__ . "/../config/db.php");
 DB::$conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
@@ -7,7 +8,7 @@ class DB
 {
 	public static mysqli $conn;
 
-	public static function query(string $query): mysqli_result
+	public static function query(string $query): mysqli_result | bool
 	{
 		return DB::$conn->query($query);
 	}
@@ -42,7 +43,7 @@ class DB
 
 		if (mysqli_num_rows($result) >= 1) {
 			$data = $result->fetch_assoc();
-			return new Customer($data["id"], $data["FirstName"], $data["LastName"], $data["Description"], $data["Adress"], $data["Last act."]);
+			return new Customer($data["id"], $data["FirstName"], $data["LastName"], $data["Description"], $data["Adress"], $data["Last act."], $data["Status"]);
 		}
 
 		return false;
@@ -59,7 +60,7 @@ class DB
 	}
 
 	public static function updateCustomer(String $fName, String $lName, String $desc, String $address, String $status){
-		self::query("UPDATE customers SET FirstName = \"$fName\", LastName = \"$lName\", Description = \"$desc\", Adress = \"$address\", Status = \"$status\")");
+		self::query("UPDATE customers SET FirstName = \"$fName\", LastName = \"$lName\", Description = \"$desc\", Adress = \"$address\", Status = \"$status\"");
 	}
 }
 ?>

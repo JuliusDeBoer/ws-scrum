@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 07, 2023 at 12:50 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Host: mariadb:3306
+-- Generation Time: Jun 07, 2023 at 12:53 PM
+-- Server version: 10.10.2-MariaDB-1:10.10.2+maria~ubu2204
+-- PHP Version: 8.0.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,8 +34,8 @@ CREATE TABLE `customers` (
   `Description` varchar(128) NOT NULL,
   `Adress` varchar(128) NOT NULL,
   `Status` varchar(128) NOT NULL,
-  `Last act.` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `Last act.` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -50,8 +50,7 @@ CREATE TABLE `users` (
   `Email` varchar(100) NOT NULL,
   `Password` varchar(100) NOT NULL,
   `Admin` int(1) NOT NULL DEFAULT 0 COMMENT 'Must be either 1 or 0\r\n'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 --
 -- Indexes for dumped tables
 --
@@ -76,13 +75,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -7,8 +7,9 @@ class Customer
 	public string $description;
 	public string $address;
   public string $date;
+  public string $status;
 
-	public function __construct(int $id, string $firstName, string $lastName, string $description, string $address, string $date)
+	public function __construct(int $id, string $firstName, string $lastName, string $description, string $address, string $date, string $status)
 	{
 		$this->id = $id;
 		$this->firstName = $firstName;
@@ -16,6 +17,7 @@ class Customer
 		$this->description = $description;
 		$this->address = $address;
     $this->date = $date;
+    $this->status = $status;
 	}
 
 	public function export(): string {
