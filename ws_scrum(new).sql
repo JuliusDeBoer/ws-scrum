@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: mariadb:3306
--- Generation Time: May 24, 2023 at 11:16 AM
--- Server version: 10.10.2-MariaDB-1:10.10.2+maria~ubu2204
--- PHP Version: 8.0.27
+-- Host: 127.0.0.1
+-- Generation Time: Jun 07, 2023 at 12:50 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,20 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
---
-
-CREATE TABLE `admin` (
-  `id` int(11) NOT NULL,
-  `FirstName` varchar(128) NOT NULL,
-  `LastName` varchar(128) NOT NULL,
-  `email` varchar(128) NOT NULL,
-	`password` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `customers`
 --
 
@@ -49,17 +35,26 @@ CREATE TABLE `customers` (
   `Adress` varchar(128) NOT NULL,
   `Status` varbinary(128) NOT NULL,
   `Last act.` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `FirstName` varchar(100) NOT NULL,
+  `LastName` varchar(100) NOT NULL,
+  `Email` varchar(100) NOT NULL,
+  `Password` varchar(100) NOT NULL,
+  `Admin` int(1) NOT NULL DEFAULT 0 COMMENT 'Must be either 1 or 0\r\n'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `customers`
@@ -68,19 +63,25 @@ ALTER TABLE `customers`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Indexes for table `users`
 --
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for table `admin`
+-- AUTO_INCREMENT for dumped tables
 --
-ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
