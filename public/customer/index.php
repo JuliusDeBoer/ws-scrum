@@ -53,7 +53,7 @@ $row = new Customer(-1, "", "", "", "", "", "");
 					</div>
 					<div>
 						<label for="lastname">lastname</label>
-						<input type="text" name="lastname" value="<?= $row->firstName ?>" required>
+						<input type="text" name="lastname" value="<?= $row->lastName ?>" required>
 					</div>
 					<div>
 						<label for="address">address</label>
